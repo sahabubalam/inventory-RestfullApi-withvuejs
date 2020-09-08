@@ -1,31 +1,30 @@
-class AppStorage{
+class AppStorage
+{
     storeToken(token)
     {
-        localStorage.setItem('token',token)
+        localStorage.setItem('token',token);
     }
     storeUser(user)
     {
-        localStorage.setItem('user',user)
+        localStorage.setItem('user',user);
     }
-
-    store(user,token)
+    store(token,user)
     {
-        this.storeToken(token)
-        this.storeUser(user)
+        this.storeToken(token);
+        this.storeUser(user);
     }
     clear()
     {
-        localStorage.removeItem('token')
-        localStorage.removeItem('user')
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
     }
     getToken()
     {
         localStorage.getItem('token');
     }
-    getToken()
+    getUser()
     {
-        localStorage.getItem('user')
+        localStorage.getItem('user');
     }
-
 }
-export default AppStorage = new AppStorage();
+export default AppStorage=new AppStorage();

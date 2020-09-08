@@ -26,7 +26,7 @@
 <body id="page-top">
 <div id="app">
 
-  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top" id="topbar" style="display:none" v-show="$route.path==='/' || $route.path==='/register' ||$route.path==='/forget' ? false :true " > 
 
     <a class="navbar-brand mr-1" href="index.html">Inventory Dashboard</a>
 
@@ -80,7 +80,7 @@
           <a class="dropdown-item" href="#">Settings</a>
           <a class="dropdown-item" href="#">Activity Log</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+          <router-link class="dropdown-item" to="/logout">Logout</router-link>
         </div>
       </li>
     </ul>
@@ -90,29 +90,74 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="sidebar navbar-nav">
+    <ul class="sidebar navbar-nav" id="leftbar" style="display:none" v-show="$route.path==='/' || $route.path==='/register' ||$route.path==='/forget' ? false :true ">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <router-link class="nav-link" to="/home">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
-        </a>
+        </router-link>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Login Screens:</h6>
-          <a class="dropdown-item" href="login.html">Login</a>
-          <a class="dropdown-item" href="register.html">Register</a>
-          <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-          <div class="dropdown-divider"></div>
-          <h6 class="dropdown-header">Other Pages:</h6>
-          <a class="dropdown-item" href="404.html">404 Page</a>
-          <a class="dropdown-item" href="blank.html">Blank Page</a>
-        </div>
-      </li>
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Employee</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+           
+            <router-link class="dropdown-item" to="/store-employee">Add Employee</router-link>
+            <router-link class="dropdown-item" to="/employee">All Employee</router-link>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Suppliers</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+           
+            <router-link class="dropdown-item" to="/store-supplier">Add Supplier</router-link>
+            <router-link class="dropdown-item" to="/supplier">All Supplier</router-link>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Categories</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+           
+            <router-link class="dropdown-item" to="/store-category">Add Category</router-link>
+            <router-link class="dropdown-item" to="/category">All Category</router-link>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Products</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+           
+            <router-link class="dropdown-item" to="/store-Product">Add Product</router-link>
+            <router-link class="dropdown-item" to="/Product">All Product</router-link>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Expense</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+           
+            <router-link class="dropdown-item" to="/store-expense">Add Expense</router-link>
+            <router-link class="dropdown-item" to="/expense">All Expense</router-link>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Salary</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+           
+            <router-link class="dropdown-item" to="/given-salary">Pay salary</router-link>
+            <router-link class="dropdown-item" to="/salary">All Salary</router-link>
+          
+        </li>
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-chart-area"></i>
@@ -164,6 +209,15 @@
  
   <script src="{{asset('backend/vendor/jquery/jquery.min.js')}}"></script>
   <!--<script src="{{asset('backend/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>-->
+  <script>
+
+  let token=localStorage.getItem('token')
+  if(token)
+  {
+    $("#topbar").css("display","");
+    $("#leftbar").css("display","");
+  }
+  </script>
 
   <!-- Core plugin JavaScript-->
   <script src="{{asset('backend/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
