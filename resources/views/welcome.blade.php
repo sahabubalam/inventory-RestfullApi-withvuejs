@@ -97,6 +97,12 @@
           <span>Dashboard</span>
         </router-link>
       </li>
+      <li class="nav-item bg-danger">
+        <router-link class="nav-link" to="/pos">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span class="text-white"><b>Pos</b></span>
+        </router-link>
+      </li>
       <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-fw fa-folder"></i>
@@ -116,6 +122,16 @@
            
             <router-link class="dropdown-item" to="/store-supplier">Add Supplier</router-link>
             <router-link class="dropdown-item" to="/supplier">All Supplier</router-link>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Customers</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+           
+            <router-link class="dropdown-item" to="/store-customer">Add Customer</router-link>
+            <router-link class="dropdown-item" to="/customer">All Customer</router-link>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

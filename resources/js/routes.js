@@ -31,6 +31,12 @@ let paysalary=require('./components/salary/create.vue').default;
 let allsalary=require('./components/salary/index.vue').default;
 let viewsalary=require('./components/salary/view.vue').default;
 let editsalary=require('./components/salary/edit.vue').default;
+//customer
+let storecustomer =require('./components/customer/create.vue').default;
+let customer =require('./components/customer/index.vue').default;
+let editcustomer =require('./components/customer/edit.vue').default;
+//pount of sale
+let pos =require('./components/pos/pointofsale.vue').default;
 
 
 
@@ -67,4 +73,11 @@ export const routes = [
     { path: '/salary', component: allsalary, name:'salary' },
     { path: '/view-salary/:id', component: viewsalary, name:'view-salary' },
     { path: '/edit-salary/:id', component: editsalary, name:'edit-salary' },
+    //customer
+    { path: '/store-customer', component: storecustomer, name:'store-customer' },
+    { path: '/customer', component: customer,name:'customer' },
+    { path: '/edit-customer/:id', component: editcustomer,name:'edit-customer' },
+    //pos
+
+    { path: '/pos', component: pos, name:'pos' },
   ]

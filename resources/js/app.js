@@ -38,6 +38,8 @@ window.Toast=Toast;
 
 //sweet alert end
 
+window.Reload = new Vue();
+
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 const router = new VueRouter({

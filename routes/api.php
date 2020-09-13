@@ -57,9 +57,20 @@ Route::apiResource('/supplier','Api\SupplierController');
 Route::apiResource('/category','Api\CategoryController');
 Route::apiResource('/product','Api\ProductController');
 Route::apiResource('/expense','Api\ExpenseController');
+Route::apiResource('/customer','Api\CustomerController');
 
 Route::post('/paidsalary/{id}','Api\SalaryController@paid');
 Route::get('/salary','Api\SalaryController@allsalary');
 Route::get('/salary/view/{id}','Api\SalaryController@viewsalary');
 Route::get('/edit/salary/{id}','Api\SalaryController@editsalary');
 Route::post('/update/salary/{id}','Api\SalaryController@salaryupdate');
+
+Route::get('/getting/product/{id}','Api\PosController@GetProduct');
+
+Route::get('/addTocart/{id}','Api\CartController@AddToCart');
+Route::get('/cart/product','Api\CartController@CartProduct');
+Route::get('/remove/cart/{id}','Api\CartController@RemoveCart');
+Route::get('/increment/{id}','Api\CartController@Increment');
+Route::get('/decrement/{id}','Api\CartController@Decrement');
+Route::get('/vats','Api\CartController@Vats');
+
