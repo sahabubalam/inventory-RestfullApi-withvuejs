@@ -36,6 +36,15 @@ class Notification
             timeout:1000, 
         }).show();
     }
+    stockerror()
+    {
+        new Noty({
+            type:'error',
+            layout:'topRight',
+            text: ' This Product Not Available ',
+            timeout:1000, 
+        }).show();
+    }
     warinng()
     {
         new Noty({

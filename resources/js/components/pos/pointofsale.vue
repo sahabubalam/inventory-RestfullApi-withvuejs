@@ -188,10 +188,9 @@
                        <button class="btn bt-sm" @click.prevent="AddToCart(product.id)">
                         <div class="card" style="width: 9rem; height: 180px;">
                           <img :src="product.image" class="card-img-top" style="height: 100px; width: 100px;">
-                          <div class="card-body">
-                            <small class="card-title">{{ product.product_name }}</small> 
-                            <br><br>
-                            <span class="badge badge-success" v-if="product.product_quantity >= 1"> Availble ({{ product.product_quantity }}) </span><br>
+                           <div class="card-body">
+                            <small class="card-title">{{ product.product_name }}</small>
+                            <span class="badge badge-success" v-if="product.product_quantity >= 1"> Availble ({{ product.product_quantity }}) </span>
                             <span class="badge badge-danger" v-else="">Stock Out</span>
                           </div>
                         </div>
@@ -211,7 +210,7 @@
                           <div class="card-body">
                             <small class="card-title">{{ getproduct.product_name }}</small> 
                             <br><br>
-                            <span class="badge badge-success" v-if="getproduct.product_quantity >= 1"> Availble ({{ getproduct.product_quantity }}) </span><br>
+                            <span class="badge badge-success" v-if="getproduct.product_quantity >= 1"> Availble ({{ getproduct.product_quantity }}) </span>
                             <span class="badge badge-danger" v-else="">Stock Out</span>
                           </div>
                         </div>
@@ -306,7 +305,10 @@
             axios.get('/api/addTocart/'+id)
             .then(() => {
                Reload.$emit('AfterAdd');
-               Notification.cart_success()
+               Notification.success()
+            })
+            .catch(()=>{
+              Notification.stockerror()
             })
           },
           cartProduct(){
@@ -339,6 +341,18 @@
             axios.get('/api/vats')
              .then(({data}) => (this.vats = data))
              .catch()
+          },
+          orderdone(){
+              let total =  this.subtotal*this.vats.vat /100 +this.subtotal;
+              var data={qty:this.qty,subtotal:this.subtotal,customer_id:this.customer_id,payby:this.payby,pay:this.pay,due:this.due,vat:this.vats.vat,total:total}
+                axios.post('/api/orderdone/',data)
+                .then(() => {
+               
+                Notification.success();
+                this.$router.push({name: 'home'})
+                
+                
+                })
           },
          
           //end cart methods

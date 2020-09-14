@@ -10,7 +10,7 @@ class CartController extends Controller
 {
     public function AddToCart(Request $request,$id)
     {
-    	$product=DB::table('products')->where('id',$id)->first();
+    	$product=DB::table('products')->where('id',$id)->where( 'product_quantity','>=','1')->first();
 
     	$check=DB::table('pos')->where('pro_id',$id)->first();
 

@@ -174,6 +174,23 @@
             <router-link class="dropdown-item" to="/salary">All Salary</router-link>
           
         </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Order</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+           
+            <router-link class="dropdown-item" to="/order">Today Order</router-link>
+            <router-link class="dropdown-item" to="/search">Search</router-link>
+          
+        </li>
+        <li class="nav-item bg-danger">
+        <router-link class="nav-link" to="#">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span class="text-white">Settings</span>
+        </router-link>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-chart-area"></i>

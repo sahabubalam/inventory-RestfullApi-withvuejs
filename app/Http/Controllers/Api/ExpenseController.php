@@ -40,7 +40,7 @@ class ExpenseController extends Controller
     {
         $validatedData = $request->validate([
            
-            'details' => 'required|max:13', 
+            'details' => 'required', 
             'amount' => 'required',   
         ]);
             $expense=new Expense();

@@ -37,7 +37,10 @@ let customer =require('./components/customer/index.vue').default;
 let editcustomer =require('./components/customer/edit.vue').default;
 //pount of sale
 let pos =require('./components/pos/pointofsale.vue').default;
-
+//order
+let order =require('./components/order/order.vue').default;
+let vieworder =require('./components/order/vieworder.vue').default;
+let search =require('./components/order/search.vue').default;
 
 
 export const routes = [
@@ -80,4 +83,8 @@ export const routes = [
     //pos
 
     { path: '/pos', component: pos, name:'pos' },
+    //order
+    { path: '/order', component: order, name:'order' },
+    { path: '/view-order/:id', component: vieworder,name:'view-order' },
+    { path: '/search', component: search, name:'search' },
   ]
